@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.android.orc.kotlin_coderswag.controller.MainActivity">
+    tools:context="com.android.orc.kotlin_coderswag.controller.activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/content_container"

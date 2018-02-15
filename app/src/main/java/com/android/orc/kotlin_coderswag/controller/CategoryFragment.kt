@@ -1,5 +1,6 @@
 package com.android.orc.kotlin_coderswag.controller
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -10,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.android.orc.kotlin_coderswag.R
 import com.android.orc.kotlin_coderswag.adapter.CatagoryRecyclerViewAdapter
+import com.android.orc.kotlin_coderswag.controller.activity.ProductActivity
 import com.android.orc.kotlin_coderswag.services.DataService
+import com.android.orc.kotlin_coderswag.utilities.EXTRA_CATEGORY
 import kotlinx.android.synthetic.main.fragment_category.*
 
 /**
@@ -40,7 +43,9 @@ class CategoryFragment : Fragment() {
     private fun initInstances(rootView: View?) {
 
         adapter = CatagoryRecyclerViewAdapter(context, DataService.categories) { category ->
-            Toast.makeText(context, "$category.title", Toast.LENGTH_LONG).show()
+            val productIntent = Intent(context, ProductActivity::class.java)
+            productIntent.putExtra(EXTRA_CATEGORY, category.title)
+            startActivity(productIntent)
         }
 
         val recyclerView = rootView!!.findViewById(R.id.categoryRecyclerView) as RecyclerView

@@ -1,13 +1,9 @@
-package com.android.orc.kotlin_coderswag.controller
+package com.android.orc.kotlin_coderswag.controller.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.widget.Toast
 import com.android.orc.kotlin_coderswag.R
-import com.android.orc.kotlin_coderswag.adapter.CatagoryRecyclerViewAdapter
-import com.android.orc.kotlin_coderswag.services.DataService
-import kotlinx.android.synthetic.main.fragment_category.*
+import com.android.orc.kotlin_coderswag.controller.CategoryFragment
 
 class MainActivity : AppCompatActivity() {
 
