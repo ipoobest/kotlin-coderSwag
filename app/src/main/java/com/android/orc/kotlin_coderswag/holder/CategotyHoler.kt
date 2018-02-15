@@ -12,10 +12,11 @@ import kotlinx.android.synthetic.main.category_list_item.view.*
 /**
  * Created by j.poobest on 14/2/2018 AD.
  */
-class CategotyHoler(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+class CategotyHoler(itemView: View?,val itemClick: (Category) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
     val categoryImage = itemView?.findViewById<ImageView>(R.id.categoryImage)
     val categoryName = itemView?.findViewById<TextView>(R.id.categoryName)
+
 
     fun bindCategory(category: Category, context: Context) {
         val resourceID = context.resources.getIdentifier(category.image,
@@ -23,6 +24,10 @@ class CategotyHoler(itemView: View?) : RecyclerView.ViewHolder(itemView) {
 
         categoryImage?.setImageResource(resourceID)
         categoryName?.text = category.title
+
+        itemView.setOnClickListener {itemClick(category)  }
+
+
     }
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.android.orc.kotlin_coderswag.R
 import com.android.orc.kotlin_coderswag.adapter.CatagoryRecyclerViewAdapter
 import com.android.orc.kotlin_coderswag.adapter.CategoryAdapter
@@ -28,7 +29,10 @@ class MainActivity : AppCompatActivity() {
 //        categoryListView.adapter = adapter
 
 //        RecyclerView
-        adapter = CatagoryRecyclerViewAdapter(this, DataService.categories )
+
+        adapter = CatagoryRecyclerViewAdapter(this, DataService.categories ){
+            category -> Toast.makeText(this, "$category.title", Toast.LENGTH_LONG).show()
+        }
         categoryRecyclerView.adapter = adapter
 
         val layoutManager = LinearLayoutManager(this)

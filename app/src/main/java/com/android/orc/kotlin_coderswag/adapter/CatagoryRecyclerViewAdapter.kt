@@ -12,12 +12,16 @@ import com.android.orc.kotlin_coderswag.model.Category
 /**
  * Created by j.poobest on 13/2/2018 AD.
  */
-class CatagoryRecyclerViewAdapter( val context: Context, val category: List<Category>) : RecyclerView.Adapter<CategotyHoler>() {
+class CatagoryRecyclerViewAdapter( val context: Context, val category: List<Category>, val itemClick: (Category)->Unit) : RecyclerView.Adapter<CategotyHoler>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CategotyHoler {
 
-        return CategotyHoler(LayoutInflater.from(parent?.context).inflate(R.layout.category_list_item, parent, false))
+        val view = LayoutInflater.from(parent?.context)
+                .inflate(R.layout.category_list_item, parent, false)
+
+        return CategotyHoler(view, itemClick)
+
     }
 
     override fun getItemCount(): Int {
@@ -26,6 +30,7 @@ class CatagoryRecyclerViewAdapter( val context: Context, val category: List<Cate
 
     override fun onBindViewHolder(holder: CategotyHoler?, position: Int) {
         holder?.bindCategory(category[position], context)
+
 
     }
 
